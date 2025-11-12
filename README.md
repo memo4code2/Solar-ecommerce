@@ -2,6 +2,8 @@
 
 Welcome to **Solar E-commerce**, an online store specialized in selling solar energy products!  
 This project is built using **PHP** and **MySQL** to provide a simple and secure shopping experience.
+![Homepage](images/sad.jpg)
+
 
 ---
 
