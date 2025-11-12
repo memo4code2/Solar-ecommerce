@@ -1,0 +1,238 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --border-radius: 8px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+.admin-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.admin-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    height: 60px;
+    margin-left: 15px;
+}
+
+.admin-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+    background-color: var(--accent-color);
+    font-weight: 500;
+}
+
+.admin-main {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.form-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.form-group input {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.file-upload {
+    position: relative;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px dashed #ddd;
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.upload-label:hover {
+    border-color: var(--secondary-color);
+    background-color: #f0f8ff;
+}
+
+.upload-label i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.upload-label span {
+    color: var(--primary-color);
+}
+
+.file-name {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+}
+
+.submit-btn {
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.submit-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.admin-footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+.admin-footer span {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+}
