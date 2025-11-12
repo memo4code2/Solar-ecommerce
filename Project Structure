@@ -1,0 +1,15 @@
+Solar-ecommerce/
+│
+├─ index.php
+├─ login.php
+├─ register.php
+├─ shop.php
+├─ checkout.php
+├─ order_success.php
+├─ css/
+│  └─ style.css
+├─ js/
+│  └─ script.js
+├─ images/
+├─ shop_dbn.sql
+└─ README.md
