@@ -1,30 +1,47 @@
-   function scrollToBottom() {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth'
-            });
+   // Scroll to section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
         }
 
-        // Show the specified modal
+        // Show modal
         function showModal(modalType) {
-            closeModal(); // Close any open modals
+            closeModal();
             
             if(modalType === 'login') {
-                document.getElementById('loginModal').style.display = 'flex';
+                const modal = document.getElementById('loginModal');
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    modal.querySelector('.modal-content').style.transform = 'scale(1)';
+                }, 10);
             }
             
             document.body.style.overflow = 'hidden';
         }
 
-        // Close all modals
+        // Close modal
         function closeModal() {
-            document.getElementById('loginModal').style.display = 'none';
+            const modal = document.getElementById('loginModal');
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        // Close modal when clicking outside
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Close modal on outside click
         window.addEventListener('click', function(e) {
-            if (e.target.classList.contains('modal')) {
+            const modal = document.getElementById('loginModal');
+            if (e.target === modal) {
                 closeModal();
             }
         });
@@ -35,3 +52,62 @@
                 closeModal();
             }
         });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all benefit cards
+        document.querySelectorAll('.benefit-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add hover effect to all buttons
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('mouseenter', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);

@@ -1,8 +1,5 @@
 <?php
-
-
-
-include 'config.php';
+include './Database/config.php';
 session_start();
 $user_id = $_SESSION['user_id'];
 
@@ -51,5 +48,7 @@ if(isset($_GET['delete_all'])){
    mysqli_query($conn, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
    header('location:index.php');
 }
+
+
 
 ?>

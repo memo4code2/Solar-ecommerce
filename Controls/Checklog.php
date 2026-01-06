@@ -1,5 +1,7 @@
 <?php
-include ('../database/config.php');
+
+
+include '../Database/config.php';
 session_start();
 
 if(isset($_POST['submit'])){
@@ -11,21 +13,12 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($select) > 0){
       $row = mysqli_fetch_assoc($select);
       $_SESSION['user_id'] = $row['id'];
-      header('location:index.php');
+      header('location:../index.php');
       exit();
    }else{
       $message[] = 'البريد الإلكتروني أو كلمة المرور غير صحيحة!';
    }
 }
-
-
-// <!-- Error messages -->
-   
-    if(isset($message)){
-        foreach($message as $message){
-            echo '<div class="message" onclick="this.remove();">'.$message.'</div>';
-        }
-    }
 
 
 

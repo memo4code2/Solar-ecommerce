@@ -1,27 +1,50 @@
-<?php  include ('Contrlos/check.php')     ?>
-
+<?php
+// يمكنك إضافة كود PHP هنا لاحقًا
+?>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enfinty Energy</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="css/style1.css">
+    
+    <link rel="stylesheet" href="public/CSS/Login.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="public/css/login.css">
-
+    <!-- إضافة خط Tajawal للغة العربية -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
-      
+        /* Color Scheme with Morph Design */
+     
     </style>
 </head>
 <body>
-    
+    <!-- Morph Background Elements -->
+    <div class="morph-bg"></div>
+    <div class="morph-bg"></div>
+    <div class="morph-bg"></div>
 
-    <div class="header">
+    <!-- Error messages -->
+    <?php
+    if(isset($message)){
+        foreach($message as $message){
+            echo '<div class="message" onclick="this.remove();">'.$message.'</div>';
+        }
+    }
+    ?>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact" onclick="window.location.href='tel:0100000000'">
+        <i class='bx bx-phone'></i>
+    </div>
+
+    <div class="header" id="mainHeader">
         <span>🌞 Enfinty Energy</span>
         <div>
             <a href="index.php">الرئيسية</a>
+            <a href="#benefits">الفوائد</a>
+            <a href="#calculation">الحسابات</a>
+            <a href="#about">عن الطاقة الشمسية</a>
             <button class="login-btn" onclick="showModal('login')">تسجيل الدخول</button>
         </div>
     </div>
@@ -31,18 +54,20 @@
             <h1>منذ اللحظة الأولى لبدايتنا ونحن نسعى لتوفير أفضل حلول الطاقة الشمسية</h1>
             <p>مهما كانت الحلول والبدائل التي تبحث عنها، فبالتأكيد سوف تلبي المنتجات عالية الجودة الخاصة بنا كافة احتياجاتك.</p>
             <div class="cta-buttons">
-                <a href="login.php" class="button">ابدأ الآن →</a>
-                <button onclick="scrollToBottom()" class="button">اعرف المزيد</button>
-                <a href="" class="button" style="background-color: transparent; color: var(--primary); margin-right: 15px;"> تواصل معنا ✆ : 0100000000</a>
+                <a href="login.php" class="button">ابدأ الآن <i class='bx bx-chevron-left'></i></a>
+                <button onclick="scrollToSection('benefits')" class="button secondary">اعرف المزيد</button>
+                <a href="tel:0100000000" class="button" style="background: transparent; color: var(--primary); border: 2px solid var(--primary);">
+                    تواصل معنا <i class='bx bx-phone' style="margin-right: 8px;"></i> : 01019519035
+                </a>
             </div>
         </div>
         <div class="image-container">
-            <img src="IMAGES/sad.jpg" alt="الطاقة الشمسية">
+            <img src="./public/Images/IMG.png" alt="الطاقة الشمسية">
         </div>
     </div>
     
     <!-- Benefits Section -->
-    <section class="benefits-section">
+    <section class="benefits-section" id="benefits">
         <h2 class="section-title">فوائد الطاقة الشمسية</h2>
         
         <div class="benefits-grid">
@@ -91,7 +116,7 @@
     </section>
     
     <!-- Solar Calculation Section -->
-    <section class="benefits-section alt-section">
+    <section class="benefits-section alt-section" id="calculation">
         <h2 class="section-title">كيفية حساب استهلاك الطاقة الشمسية</h2>
         
         <div class="benefits-grid">
@@ -116,7 +141,7 @@
     </section>
     
     <!-- What is Solar Energy Section -->
-    <section class="benefits-section">
+    <section class="benefits-section" id="about">
         <h2 class="section-title">ما هي الطاقة الشمسية؟</h2>
         
         <div class="benefits-grid">
@@ -147,7 +172,7 @@
                 <h3>تسجيل الدخول</h3>
                 <button class="close-modal" onclick="closeModal()">&times;</button>
             </div>
-            <form class="login-form" action="check.php" method="post">
+            <form class="login-form" action="Controls/Checklog.php" method="post">
                 <div class="input-group">
                     <input type="email" name="email" required placeholder="البريد الإلكتروني">
                 </div>
@@ -157,11 +182,13 @@
                 <button type="submit" name="submit" class="btn">تسجيل الدخول</button>
             </form>
             <div class="modal-footer">
-                ليس لديك حساب؟ <a href="register.php">إنشاء حساب جديد</a>
+                ليس لديك حساب؟ <a href="./Controls/Register.php">إنشاء حساب جديد</a>
             </div>
         </div>
     </div>
 
-    <script src="public/js/login.js" ></script>
+    <script src="public/JS/Login.js">
+     
+    </script>
 </body>
 </html>
