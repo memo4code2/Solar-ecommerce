@@ -2,7 +2,7 @@
 
 A modern Arabic **Solar Energy E‑commerce Website** built to showcase and sell solar products with a clean UI and clear business presentation.
 
-![Solar E‑commerce Preview](./assets/preview.png)
+![Solar E‑commerce Preview](./assets/preview.png.PNG)
 
 ---
 
